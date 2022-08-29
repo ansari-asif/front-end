@@ -13,37 +13,42 @@ const Nav=()=>{
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul className="navbar-nav">
-                   
-                    <li className="nav-item">
+                
+                    {auth ? 
+                    <ul className="navbar-nav ">
+                        <li className="nav-item">
                         <Link to="/"  className="nav-link">prouducts</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/add_products"  className="nav-link">Add Products</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/update_products"  className="nav-link">Update Products</Link>
-                    </li>
-                    
-                    <li className="nav-item">
-                        <Link to="/profile"  className="nav-link">Profile</Link>
-                    </li>
-                    {auth ?
-                    <li className="nav-item">
-                        <Link to="/logout"  className="nav-link">Logout</Link>
-                    </li>
-                     : 
-                     <>
-                     <li className="nav-item">
-                        <Link to="/login"  className="nav-link">Login</Link>
-                    </li> 
-                    <li className="nav-item">
-                        <Link to="/signup"  className="nav-link">Sign Up</Link>
-                    </li> 
-                     </>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/add_products"  className="nav-link">Add Products</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/update_products"  className="nav-link">Update Products</Link>
+                        </li>
+                        
+                        <li className="nav-item">
+                            <Link to="/profile"  className="nav-link">Profile</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/logout"  className="nav-link">Logout</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/"  className="nav-link">{JSON.parse(auth).name}</Link>
+                        </li>
+                    </ul>
+                    :
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <Link to="/login"  className="nav-link">Login</Link>
+                        </li> 
+                        <li className="nav-item">
+                            <Link to="/signup"  className="nav-link">Sign Up</Link>
+                        </li> 
+                    </ul>
                     }
                     
-                </ul>
+                    
+                
             </div>  
             </nav>
        </>
